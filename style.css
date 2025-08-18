@@ -216,26 +216,13 @@ p {
   }
 }
 /* Contact section styling */
-#contact p {
-  margin-bottom: 0.6em;
-  font-size: 1.13rem;
-}
-#contact i {
-  color: var(--accent-dark);
-  margin-right: 0.7em;
-  font-size: 1.15em;
-}
-#contact a {
-  color: var(--accent-dark);
-  font-weight: 500;
-  word-break: break-all;
-}
-#contact a:hover {
-  color: #114232 !important;
-  text-decoration: underline;
-
 #contact, #contact p, #contact a, #contact i {
   color: #000 !important;
+}
+
+#contact a:hover {
+  color: var(--header-dark) !important;
+  text-decoration: underline;
 }
 
 a {
