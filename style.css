@@ -4,6 +4,7 @@ body {
   color: #222;
   background: #f8f9fa;
   scroll-behavior: smooth;
+  text-align: center;
 }
 nav {
   display: flex;
@@ -35,7 +36,6 @@ section {
 }
 h1, h2, h3 {
   margin-top: 0;
-  text-align: center;
 }
 .project-list {
   display: grid;
