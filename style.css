@@ -57,11 +57,23 @@ h1, h2, h3 {
 }
 
 .skills-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
   background: #e8f0fe;
   border-radius: 8px;
   padding: 0.7rem 1.2rem;
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  transition: background 0.2s;
+}
+.skills-list li:hover {
+  background: #d2e3fc;
+}
+.skills-list i {
+  font-size: 1.4em;
+  color: #1a53ff;
+}
 }
 @media (max-width: 600px) {
   section {
