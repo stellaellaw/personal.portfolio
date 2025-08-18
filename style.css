@@ -189,14 +189,15 @@ p {
   list-style: none;
   padding: 0;
   margin: 1.5rem 0 0 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 1.1rem;
-  justify-content: center;
-  max-width: 480px;
+  max-width: 340px;
   margin-left: auto;
   margin-right: auto;
 }
+
 .skills-list li {
   display: flex;
   align-items: center;
@@ -211,18 +212,11 @@ p {
   transition: background 0.2s, color 0.2s;
   border: 1.5px solid var(--accent-dark);
   justify-content: center;
+  width: 100%;
+  max-width: 300px;
 }
-
-/* Center the second row (last two skills) */
-.skills-list li:nth-child(4) {
-  grid-column: 2 / 3;
-}
-.skills-list li:nth-child(5) {
-  grid-column: 3 / 4;
-}
-
 .skills-list li:hover {
-  background: var(--header-dark);
+  background: #114232;
   color: #fff;
 }
 .skills-list i {
