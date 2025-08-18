@@ -231,7 +231,7 @@ p {
   word-break: break-all;
 }
 #contact a:hover {
-  color: #155941;
+  color: #114232 !important;
   text-decoration: underline;
 
 #contact, #contact p, #contact a, #contact i {
