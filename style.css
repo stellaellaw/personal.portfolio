@@ -10,8 +10,11 @@
   --text-light: #666;
   --shadow: 0 4px 24px rgba(50, 70, 60, 0.08);
   --border-radius: 18px;
+  --section-spacing: 3.5rem;
+  --section-spacing-mobile: 2rem;
 }
 
+/* Reset and base styles */
 body {
   font-family: 'Inter', Arial, sans-serif;
   margin: 0;
@@ -20,6 +23,7 @@ body {
   scroll-behavior: smooth;
 }
 
+/* Navbar Styles */
 nav {
   width: 100%;
   background: var(--card-bg);
@@ -27,32 +31,44 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
+  padding: 0; /* Remove extra padding */
 }
 
 .nav-content {
   max-width: 1100px;
   margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  padding: 1.1rem 2rem;
+  justify-content: center;
+  padding: 0.7rem 1.5rem;
+  gap: 1.5rem;
 }
 
 .nav-name {
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   color: var(--accent-dark);
   letter-spacing: 1px;
+  margin-right: 2.5rem;
+  flex-shrink: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.7rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .nav-links a {
   color: var(--text-light);
   text-decoration: none;
-  margin-left: 2rem;
   font-weight: 500;
   font-size: 1rem;
   transition: color .2s;
   position: relative;
+  padding: 0.2em 0;
 }
 .nav-links a:hover {
   color: var(--accent-dark);
@@ -72,12 +88,18 @@ nav {
 
 .card {
   max-width: 900px;
-  margin: 3.5rem auto 2.5rem auto;
+  margin: var(--section-spacing) auto 0 auto;
   background: var(--card-bg);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   padding: 2.5rem 2rem;
   box-sizing: border-box;
+  position: relative;
+}
+
+/* Extra space at the end of each section */
+.card:not(:last-child) {
+  margin-bottom: var(--section-spacing);
 }
 
 .center {
@@ -149,13 +171,16 @@ p {
 .skills-list {
   list-style: none;
   padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
+  margin: 1.5rem 0 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
   gap: 1.1rem;
   justify-content: center;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
 }
-
 .skills-list li {
   display: flex;
   align-items: center;
@@ -169,6 +194,7 @@ p {
   box-shadow: 0 1px 4px rgba(60, 120, 70, 0.04);
   transition: background 0.2s, color 0.2s;
   border: 1.5px solid var(--accent-dark);
+  justify-content: center;
 }
 .skills-list li:hover {
   background: var(--accent-dark);
@@ -181,6 +207,37 @@ p {
 }
 .skills-list li:hover i {
   color: #fff;
+}
+
+.skills-list li:nth-child(4),
+.skills-list li:nth-child(5) {
+  grid-column: span 1;
+}
+.skills-list li:nth-child(4) {
+  grid-column-start: 1;
+}
+.skills-list li:nth-child(5) {
+  grid-column-start: 2;
+}
+
+/* Contact section styling */
+#contact p {
+  margin-bottom: 0.6em;
+  font-size: 1.13rem;
+}
+#contact i {
+  color: var(--accent-dark);
+  margin-right: 0.7em;
+  font-size: 1.15em;
+}
+#contact a {
+  color: var(--accent-dark);
+  font-weight: 500;
+  word-break: break-all;
+}
+#contact a:hover {
+  color: #155941;
+  text-decoration: underline;
 }
 
 a {
@@ -199,21 +256,22 @@ a:hover {
   }
   .nav-content {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     padding: 1rem 0.7rem;
-  }
-  .nav-links {
-    margin-top: 0.7rem;
-    margin-left: 0;
+    gap: 0.7rem;
   }
   .nav-links a {
-    margin-left: 1rem;
+    margin-left: 0;
+  }
+  .nav-links {
+    gap: 1.2rem;
   }
 }
 
 @media (max-width: 600px) {
   .card {
-    margin: 2rem 0.3rem;
+    margin: var(--section-spacing-mobile) 0.3rem 0 0.3rem;
     padding: 1.3rem 0.3rem;
   }
   .profile-pic {
@@ -221,6 +279,9 @@ a:hover {
     height: 90px;
   }
   .skills-list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
     gap: 0.7rem;
+    max-width: 270px;
   }
 }
