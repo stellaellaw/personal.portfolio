@@ -233,6 +233,9 @@ p {
 #contact a:hover {
   color: #155941;
   text-decoration: underline;
+
+#contact, #contact p, #contact a, #contact i {
+  color: #000 !important;
 }
 
 a {
