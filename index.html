@@ -6,15 +6,69 @@
   <title>Ella Wagner | Aerospace Portfolio</title>
   <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* ADDED THIS FOR SLEEK MODERN STYLING */
+    :root {
+      --primary-color: #00796b; /* Teal from your image */
+      --bg-color: #f4fcfc;       /* Very light teal/white background */
+    }
+
+    /* Grid Layout for Projects to make them look like cards */
+    .project-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    /* Tag Styling for that "Technical" look */
+    .tags {
+      margin: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    
+    .tag {
+      background: #e0f2f1;
+      color: var(--primary-color);
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid #b2dfdb;
+    }
+
+    /* Skill Categories */
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      text-align: left;
+    }
+    
+    .skill-category h4 {
+      color: var(--primary-color);
+      margin-bottom: 5px;
+      border-bottom: 2px solid #b2dfdb;
+      display: inline-block;
+    }
+
+    .project.box h3 {
+      margin-top: 0;
+    }
+  </style>
 </head>
 <body>
+
   <nav>
     <div class="nav-content">
       <span class="nav-name">Ella Wagner</span>
       <div class="nav-links">
         <a href="#about">About</a>
-        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </div>
@@ -25,67 +79,125 @@
     <img src="portfolio.jpeg" alt="Photo of Ella Wagner" class="profile-pic"/>
     <h1>Ella Wagner</h1>
     <p>
-      I am a current Aerospace Engineering Student at Universidad Europea in Madrid, Spain. Originally from Denver, Colorado, I bring an international perspective shaped by both my American roots and my academic journey abroad. My career goals and passions are to contribute to the sustainable development of flight and aeronautical innovation.
+      I am a 3rd-year <strong>Aerospace Engineering</strong> student at Universidad Europea in Madrid, originally from Denver, Colorado. I specialize in <strong>aerodynamic design and computational fluid dynamics (CFD)</strong>, with a passion for the sustainable development of flight. My academic journey across two continents has shaped a unique, international perspective on aeronautical innovation. I thrive at the intersection of complex simulation and hands-on robotics, constantly seeking to bridge the gap between theoretical physics and real-world engineering solutions.
     </p>
+    <br>
     <p>Welcome to my portfolio!</p>
+  </section>
+
+  <section id="projects" class="card">
+    <h2>Technical Projects</h2>
+    <div class="project-list">
+      
+      <div class="project box">
+        <h3>High-Efficiency Solar UAV Wing Design</h3>
+        <div class="tags">
+          <span class="tag">ANSYS Fluent</span>
+          <span class="tag">XFLR5</span>
+          <span class="tag">Python</span>
+          <span class="tag">Aerodynamics</span>
+        </div>
+        <p>
+            Designed a high-efficiency wing for a solar-powered UAV to operate at low Reynolds numbers. Conducted a multi-stage screening process to select a hybrid airfoil configuration (S1223 Root, E387 Mid, S6063 Tip) . 
+            Optimized the wing geometry with a 4-degree twist to ensure root-first stall progression . 
+            Validated the design using <strong>ANSYS Fluent</strong> with the Transition SST turbulence model, identifying a divergence between XFLR5 potential flow and RANS CFD predictions regarding laminar separation bubbles .
+        </p>
+      </div>
+
+      <div class="project box">
+        <h3>Autonomous Obstacle-Avoidance Rover</h3>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Raspberry Pi</span>
+          <span class="tag">Webots Simulation</span>
+          <span class="tag">Robotics</span>
+        </div>
+        <p>
+          Engineered a 6-wheeled autonomous rover capable of "search and avoid" missions using a Raspberry Pi and ultrasonic sensors. 
+          Developed a "digital twin" in <strong>Webots</strong> to validate obstacle-avoidance algorithms and turn logic prior to physical deployment. 
+          Integrated a <strong>Sense HAT</strong> for real-time telemetry (Yaw, Temp) and designed a custom voltage-divider circuit to interface 5V sensors with 3.3V logic.
+        </p>
+      </div>
+
+      <div class="project box">
+        <h3>NACA 2410 Airfoil CFD Study</h3>
+        <div class="tags">
+          <span class="tag">CFD</span>
+          <span class="tag">Fluid Mechanics</span>
+          <span class="tag">Meshing</span>
+        </div>
+        <p>
+          Conducted a computational fluid dynamics (CFD) study of the NACA 2410 airfoil to investigate aerodynamic behavior across laminar and turbulent regimes. 
+          Built refined meshes and varied angles of attack between -45° and 45° to analyze lift, drag, and stall onset. 
+          Validated simulations against experimental data, reinforcing proficiency in advanced CFD methodologies.
+        </p>
+      </div>
+
+      <div class="project box">
+        <h3>AI Lift & Drag Coefficient Model</h3>
+        <div class="tags">
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Python</span>
+          <span class="tag">Data Analysis</span>
+        </div>
+        <p>
+          Created a machine learning model to accurately predict lift and drag coefficients for various airfoil shapes. 
+          The model was trained on experimental and simulated aerodynamic data, enabling rapid estimation of aerodynamic performance without the need for time-consuming CFD simulations or wind tunnel testing.
+        </p>
+      </div>
+
+    </div>
   </section>
 
   <section id="experience" class="card">
     <h2>Experience</h2>
     <div class="experience-list">
+      
       <div class="experience box">
-        <h3>STEM Outreach: Volunteering in Science Education</h3>
-        <p>Supported local education initiatives by volunteering in STEM programs, through Denver Public Schools and School of Mines, helping students engage with physics and engineering concepts through hands-on activities. Strengthened communication, mentoring, and leadership skills while promoting interest in science and technology.</p>
+        <h3>Trauma Research Internship | Denver Health</h3>
+        <p><strong>Engineering Applications in Medical Data Analysis</strong><br>
+        Contributed to studies on injury outcomes and treatment efficiency by applying engineering problem-solving methods to medical data analysis. 
+        Developed research workflows that improved data reliability and applied systems thinking to process optimization. 
+        Bridged the gap between engineering analysis and clinical research to advance healthcare solutions.</p>
       </div>
-      <div class="experience box">
-        <h3>Trauma Research Internship: Engineering Applications in Medical Data Analysis</h3>
-        <p>Interned in the Trauma Research Department at Denver Health, contributing to studies on injury outcomes and treatment efficiency. Applied engineering problem-solving methods to medical data analysis, including statistical evaluation, systems thinking, and process optimization. Assisted in developing research workflows that improved data reliability and reproducibility. Strengthened interdisciplinary skills by bridging engineering analysis with clinical research, highlighting the role of engineering principles in advancing healthcare solutions.</p>
-      </div>
-    </div>
-  </section>
 
-  <section id="projects" class="card">
-    <h2>Projects</h2>
-    <div class="project-list">
-      <div class="project box">
-        <h3>AI Lift and Drag Coefficient Model</h3>
-        <p>Created a machine learning model to accurately predict lift and drag coefficients for various airfoil shapes. The model was trained on experimental and simulated aerodynamic data, enabling rapid estimation of aerodynamic performance without the need for time-consuming CFD simulations or wind tunnel testing.</p>
+      <div class="experience box">
+        <h3>STEM Outreach Volunteer</h3>
+        <p><strong>Science Education Initiatives</strong><br>
+        Supported local education initiatives through Denver Public Schools and School of Mines. 
+        Engaged students with physics and engineering concepts through hands-on activities, strengthening communication and mentorship skills while promoting interest in science and technology.</p>
       </div>
-      <div class="project box">
-        <h3>Clarity AI: Enhancing Engineering Insight with Explainable AI</h3>
-        <p>Currently developing Clarity AI, a tool designed to provide transparent and interpretable machine learning models for aerospace engineering applications. Clarity AI focuses on making AI-driven predictions and analyses understandable to engineers, enabling more confident decision-making and fostering trust in automated systems.</p>
-      </div>
-      <div class="project box">
-        <h3>Airfoil Aerodynamics: CFD Analysis of the NACA 2410 Using ANSYS Fluent</h3>
-        <p>Conducted a computational fluid dynamics (CFD) study of the NACA 2410 airfoil to investigate aerodynamic behavior across laminar and turbulent regimes. Built refined meshes and varied angles of attack between -45° and 45° to analyze lift, drag, and stall onset. Simulations were validated against experimental data, demonstrating accurate prediction of aerodynamic efficiency and flow separation patterns. The project reinforced key fluid mechanics principles and enhanced proficiency in advanced CFD methodologies.</p>
-      </div>
-      <div class="project box">
-        <h3>Electromagnetic Motor: Applying Circuit Theory to Mechanical Motion</h3>
-        <p>Designed and analyzed a DC motor that converts electrical energy into mechanical motion using fundamental circuit principles. Applied Ohm’s Law, Kirchhoff’s Laws, and DC circuit analysis to determine current flow, resistance, and efficiency in motor operation. Explored the relationship between voltage, current, and magnetic field strength to optimize performance, reinforcing both theoretical understanding and practical application of electromagnetism in engineering design.</p>
-      </div>     
-      <div class="project box">
-        <h3>Wing Structure Analysis: Optimizing Aerodynamic Efficiency</h3>
-        <p>Conducted a comprehensive structural and aerodynamic analysis of a representative aircraft wing using computational fluid dynamics (CFD). The project involved modeling airflow patterns, calculating lift and drag forces, and evaluating structural responses under different load conditions. This work emphasized the integration of simulation tools with engineering principles to optimize performance, improve design reliability, and validate theoretical predictions.</p>
-      </div>
+
     </div>
   </section>
 
   <section id="skills" class="card center">
-    <h2>Skills</h2>
-    <ul class="skills-list">
-      <li><i class="fa-solid fa-code"></i> MATLAB</li>
-      <li><i class="fa-solid fa-cube"></i> SolidWorks</li>
-      <li><i class="fa-solid fa-gears"></i> ANSYS</li>
-      <li><i class="fa-brands fa-python"></i> Python</li>
-      <li><i class="fa-solid fa-microchip"></i> Multisim</li>
-    </ul>
+    <h2>Technical Skills</h2>
+    <div class="skills-container">
+      
+      <div class="skill-category">
+        <h4><i class="fa-solid fa-plane-up"></i> Aerodynamics & Design</h4>
+        <p>ANSYS Fluent, XFLR5, SolidWorks, CFD Analysis, 3D Lofting</p>
+      </div>
+      
+      <div class="skill-category">
+        <h4><i class="fa-solid fa-terminal"></i> Programming & Logic</h4>
+        <p>Python, MATLAB, Webots, C++</p>
+      </div>
+
+      <div class="skill-category">
+        <h4><i class="fa-solid fa-microchip"></i> Electronics & Lab</h4>
+        <p>Raspberry Pi, Multisim, Circuit Design, Soldering</p>
+      </div>
+
+    </div>
   </section>
 
   <section id="contact" class="card center">
     <h2>Contact</h2>
     <p><i class="fa-solid fa-envelope"></i> <a href="mailto:stellaellaw@gmail.com">stellaellaw@gmail.com</a></p>
     <p><i class="fa-brands fa-linkedin"></i> <a href="https://linkedin.com/in/stella-wagner-24hall2005" target="_blank">LinkedIn</a></p>
-    <p><i class="fa-brands fa-github"></i> <a href="https://github.com/stellaellaw" target="_blank">GitHub</a></p>
   </section>
+
 </body>
 </html>
