@@ -1,32 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
 :root {
-  /* --- REVISED PALETTE FOR CONTRAST --- */
+  /* --- COLOR PALETTE --- */
   
-  /* 1. Darker Body Background (Cool Grey) makes white cards pop */
+  /* 1. Page Background (Cool Grey for Contrast) */
   --bg-body: #e8ecef;       
   
-  /* 2. Pure White Cards */
+  /* 2. Main Card Background */
   --bg-card: #ffffff;
   
   /* 3. Deep Forest Green (Brand Color) */
   --primary: #0f392b;       
   
-  /* 4. High Contrast Accent (Darker Teal for text links) */
-  --accent-text: #00695c;   
+  /* 4. Accent Colors */
+  --accent-text: #00695c;   /* Teal for links */
+  --accent-bg: #d1fae5;     /* Mint for tags */
   
-  /* 5. Tag Backgrounds (Slightly darker mint for visibility) */
-  --accent-bg: #d1fae5;     
-  
-  /* 6. Inner Box Background (Distinct grey, not white) */
+  /* 5. Inner Box Background (Distinct grey) */
   --box-bg: #f3f4f6;
   
-  --text-main: #111827;     /* Almost black for reading sharpness */
+  /* 6. Text Colors */
+  --text-main: #111827;     /* Almost black for sharpness */
   --text-muted: #4b5563;    /* Mid-grey for descriptions */
   
-  /* stronger shadow for depth */
+  /* 7. Design Tokens */
   --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  
   --radius: 8px;
 }
 
@@ -36,16 +34,18 @@ body {
   color: var(--text-main);
   margin: 0;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* --- NAVIGATION (DARK MODE HEADER) --- */
-/* This is the biggest change for contrast */
+/* --- NAVIGATION (Frosted Glass) --- */
 nav {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: var(--primary); /* Dark Green Header */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.85); /* Semi-transparent */
+  backdrop-filter: blur(12px);           /* The "Glass" effect */
+  -webkit-backdrop-filter: blur(12px);   /* Safari support */
+  border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
 .nav-content {
@@ -58,10 +58,10 @@ nav {
 }
 
 .nav-name {
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1.35rem;
-  color: #ffffff; /* White text on dark header */
-  letter-spacing: 0.5px;
+  color: var(--primary);
+  letter-spacing: -0.02em;
 }
 
 .nav-links {
@@ -71,25 +71,24 @@ nav {
 
 .nav-links a {
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.8); /* Off-white links */
-  font-weight: 500;
+  color: var(--text-muted);
+  font-weight: 600;
   font-size: 0.95rem;
   transition: color 0.2s;
 }
 
 .nav-links a:hover {
-  color: #ffffff; /* Pure white on hover */
+  color: var(--primary);
 }
 
-/* --- CARD LAYOUT --- */
+/* --- MAIN CARD LAYOUT --- */
 .card {
-  max-width: 850px; /* Slightly wider */
+  max-width: 850px;
   margin: 3rem auto;
   background: var(--bg-card);
   padding: 3.5rem;
   border-radius: var(--radius);
-  box-shadow: var(--shadow-card); /* Deeper shadow */
-  /* No border needed now because the background contrast handles it */
+  box-shadow: var(--shadow-card);
 }
 
 .center { text-align: center; }
@@ -99,13 +98,14 @@ h1 {
   font-size: 2.5rem;
   color: var(--primary);
   margin-bottom: 0.5rem;
-  font-weight: 800; /* Bolder */
+  font-weight: 800;
+  letter-spacing: -0.03em;
 }
 
 h2 {
   font-size: 1.75rem;
   color: var(--primary);
-  border-bottom: 3px solid var(--accent-bg); /* Thicker underline */
+  border-bottom: 3px solid var(--accent-bg);
   display: inline-block;
   padding-bottom: 0.5rem;
   margin-bottom: 2.5rem;
@@ -124,39 +124,42 @@ p {
   font-size: 1.05rem;
 }
 
-/* --- PROFILE IMAGE --- */
+/* --- PROFILE PICTURE (Big & Bold) --- */
 .profile-pic {
-  width: 140px;
-  height: 140px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 1.5rem;
-  border: 4px solid #fff; /* White ring */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* Pop out effect */
+  margin-bottom: 2rem;
+  border: 6px solid #fff; /* Thick white ring */
+  box-shadow: var(--shadow-card);
 }
 
-/* --- PROJECTS & EXPERIENCE BOXES --- */
+/* --- PROJECTS & EXPERIENCE GRID --- */
 .project-list, .experience-list {
   display: grid;
   gap: 1.5rem;
+  /* Auto-fit columns for desktop, single column for mobile */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
+/* --- INNER BOXES (Interactive) --- */
 .box {
-  background: var(--box-bg); /* Darker grey box */
-  border: 1px solid transparent; 
+  background: var(--box-bg);
+  border: 1px solid transparent;
   padding: 1.8rem;
   border-radius: var(--radius);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
+  transition: all 0.2s ease;
 }
 
 .box:hover {
   background: #ffffff;
-  border-color: var(--primary); /* Green border appears on hover */
+  border-color: var(--primary); /* Green border on hover */
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.08);
 }
 
-/* --- TAGS (High Contrast) --- */
+/* --- TAGS --- */
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -170,12 +173,12 @@ p {
   font-size: 0.75rem;
   font-weight: 700;
   padding: 5px 12px;
-  border-radius: 6px; /* Squarer tech tag look */
+  border-radius: 6px;
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
 
-/* --- SKILLS SECTION --- */
+/* --- SKILLS SECTION (Vertical Stack) --- */
 .skills-container {
   display: flex;
   flex-direction: column;
@@ -198,6 +201,7 @@ p {
   background: #ffffff;
   border-color: var(--primary);
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
 }
 
 .skill-category h4 {
@@ -207,25 +211,45 @@ p {
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: 0.05em;
-  border-bottom: 2px solid #cbd5e1; /* Subtle line under header */
+  border-bottom: 2px solid #cbd5e1;
   display: inline-block;
   padding-bottom: 5px;
 }
 
-/* --- LINKS --- */
+/* --- LINKS & CONTACT --- */
 a {
   color: var(--accent-text);
   text-decoration: none;
   font-weight: 600;
+  transition: color 0.2s;
 }
 
 a:hover {
+  color: var(--primary);
   text-decoration: underline;
 }
 
-/* --- MOBILE --- */
+/* --- MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
-  .card { margin: 1.5rem 1rem; padding: 2rem; }
-  .nav-content { flex-direction: column; gap: 1rem; }
-  .nav-links { gap: 1.5rem; font-size: 0.9rem; }
+  .card { 
+    margin: 1.5rem 1rem; 
+    padding: 2rem 1.5rem; 
+  }
+  
+  .nav-content { 
+    flex-direction: column; 
+    gap: 1rem; 
+  }
+  
+  .nav-links { 
+    gap: 1.5rem; 
+    font-size: 0.9rem; 
+  }
+  
+  h1 { font-size: 2rem; }
+  
+  .profile-pic {
+    width: 150px;
+    height: 150px;
+  }
 }
