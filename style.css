@@ -283,3 +283,70 @@ a:hover {
     max-width: 270px;
   }
 }
+/* =========================================
+   ADD THIS TO THE BOTTOM OF YOUR CSS FILE
+   ========================================= */
+
+/* 1. Container for the whole skills section */
+.skills-container {
+  display: flex;
+  flex-direction: column; /* This forces the top-down vertical stack */
+  align-items: center;    /* This centers the boxes horizontally */
+  gap: 1.5rem;            /* Space between each category box */
+  width: 100%;
+}
+
+/* 2. The grey box for each category */
+.skill-category {
+  background: var(--box-grey); /* Matches your "Experience" boxes */
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  width: 100%;
+  max-width: 500px;           /* Prevents lines from getting too long */
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(60, 120, 70, .045);
+  transition: transform 0.2s;
+}
+
+.skill-category:hover {
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+/* 3. The Category Title (Aerodynamics, Programming, etc.) */
+.skill-category h4 {
+  color: #114232;             /* Your dark green header color */
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  border-bottom: 2px solid var(--accent); /* Your light green underline */
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+/* 4. The actual list of skills text */
+.skill-category p {
+  color: var(--text);
+  font-size: 1.05rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* 5. TAG STYLES (For your Project cards) */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 15px 0;
+}
+
+.tag {
+  background: #ffffff;
+  color: #114232;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--accent);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
